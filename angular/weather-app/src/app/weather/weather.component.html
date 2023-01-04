@@ -1,0 +1,27 @@
+<div class="page">
+    <div class="container">
+        <h3 class="text-center">Search for Weather:</h3>
+        <form>
+            <input mat-input type="text" [(ngModel)]="this.location" (input)="onInput($event)" />
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success btn-md" (click)="checkWeatherFromInput()">
+                    Search for the weather</button>
+            </div>
+        </form>
+    </div>
+    <div class="content">
+
+        <mat-card class="country-card" *ngFor="let country of this.resultArr">
+            <mat-card-header>
+
+                <mat-card-title>{{country.name}}</mat-card-title>
+
+            </mat-card-header>
+
+            <img mat-card-image src="{{country.image}}" (click)="checkWeather(country.name)">
+
+        </mat-card>
+
+    </div>
+</div>
